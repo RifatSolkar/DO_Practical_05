@@ -9,10 +9,9 @@ pipeline {
 
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/your-username/my-java-app.git'
+                git credentialsId: 'github-credentials', url: 'https://github.com/RifatSolkar/DO_Practical_05.git', branch: 'main'
             }
         }
-
         stage('Build Java App') {
             steps {
                 sh 'mvn clean package -DskipTests'
